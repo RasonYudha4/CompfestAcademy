@@ -36,7 +36,7 @@ export default function NavBar({ user }) {
                     <div className="ms-3 relative">
                         <Dropdown>
                             <Dropdown.Trigger>
-                                <button className='md:hidden'>
+                                <button className=' pr-4 md:hidden'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-[#5CE1E6]">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                     </svg>
@@ -52,34 +52,65 @@ export default function NavBar({ user }) {
                                 </Dropdown.Link>
                             </Dropdown.Content>
                         </Dropdown>
+                        <div className='hidden md:flex md:flex-1 md:justify-end'>
+                            {user ? (
+                                <>
+                                    <Link
+                                        href={route('aboutus')}
+                                        className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        About Us
+                                    </Link>
+                                    <Link
+                                        href={route('services')}
+                                        className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Services
+                                    </Link>
+                                    <Link
+                                        href={route('branches')}
+                                        className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Branches
+                                    </Link>
+                                </>
+                            ) : (
+                                    <>
+                                        <Link
+                                            href={route('aboutus')}
+                                            className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            About Us
+                                        </Link>
+                                        <Link
+                                            href={route('services')}
+                                            className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Services
+                                        </Link>
+                                        <Link
+                                            href={route('branches')}
+                                            className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Branches
+                                        </Link>
+                                        <Link
+                                            href={route('login')}
+                                            className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Log in
+                                        </Link>
+                                        <Link
+                                            href={route('register')}
+                                            className="rounded-md px-3 py-2 text-[#5CE1E6] text-lg font-extrabold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                        >
+                                            Register
+                                        </Link>
+                                    </>
+                            )}
+                        </div>
                     </div>
                 </div>
-
-                {/* <div className='flex flex-1 justify-end'>
-                    {user ? (
-                        <Link
-                            href={route('dashboard')}
-                            className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                        >
-                            Dashboard
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href={route('login')}
-                                className="rounded-md px-3 py-2 text-[#5CE1E6] font-bold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Log in
-                            </Link>
-                            <Link
-                                href={route('register')}
-                                className="rounded-md px-3 py-2 text-[#5CE1E6] font-bold ring-1 ring-transparent transition hover:text-[#22ABFA] focus:outline-none focus-visible:ring-[#38DDBF] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                            >
-                                Register
-                            </Link>
-                        </>
-                    )}
-                </div> */}
             </header>
         </>
     )

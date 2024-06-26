@@ -10,6 +10,9 @@ export default function Home({ auth, laravelVersion, phpVersion }) {
             <section className=" w-full h-full">
                 <img src={Background} alt="" className=''/>
             </section>
+            <section className=''>
+
+            </section>
         </>
     )
 }
