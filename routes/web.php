@@ -23,6 +23,18 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/aboutus', function () {
+    return Inertia::render('About');
+})->name('aboutus');
+
+Route::get('/branches', function () {
+    return Inertia::render('Branches');
+})->name('branches');
+
+Route::get('/services', function () {
+    return Inertia::render('Services');
+})->name('services');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

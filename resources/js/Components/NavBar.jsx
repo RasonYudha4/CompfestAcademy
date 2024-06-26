@@ -1,18 +1,19 @@
 import Logo from '../../../public/images/Logo.png';
 import { Link } from '@inertiajs/react';
+import Dropdown from '@/Components/Dropdown';
 import ApplicationLogo from './ApplicationLogo';
 
 export default function NavBar({ user }) {
     return (
         <>
-            <header className=" bg-white mx-3 my-3 px-4 md:px-12 h-24 w-full fixed flex flex-1 justify-between items-center top-0">
+            <header className=" md:bg-white mx-3 my-3 px-4 md:px-12 h-12 md:h-24 w-full fixed flex flex-1 justify-between items-center top-0 pb-3">
                 <div className=''>
                     <Link href="/">
                         <ApplicationLogo className="h-10 block w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </Link>
                 </div>
 
-                <nav>
+                {/* <nav>
                     <button className='md:hidden'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-[#5CE1E6]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -29,7 +30,31 @@ export default function NavBar({ user }) {
                             <a href="#service">Services</a>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
+
+                <div className="flex items-center ms-6">
+                    <div className="ms-3 relative">
+                        <Dropdown>
+                            <Dropdown.Trigger>
+                                <button className='md:hidden'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-[#5CE1E6]">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                    </svg>
+                                </button>
+                            </Dropdown.Trigger>
+
+                            <Dropdown.Content>
+                                <Dropdown.Link href={route('aboutus')}>About Us</Dropdown.Link>
+                                <Dropdown.Link href={route('services')}>Services</Dropdown.Link>
+                                <Dropdown.Link href={route('branches')}>Branches</Dropdown.Link>
+                                <Dropdown.Link href={route('logout')} method="post" as="button">
+                                    Log Out
+                                </Dropdown.Link>
+                            </Dropdown.Content>
+                        </Dropdown>
+                    </div>
+                </div>
+
                 {/* <div className='flex flex-1 justify-end'>
                     {user ? (
                         <Link
