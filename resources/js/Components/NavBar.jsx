@@ -6,7 +6,7 @@ import ApplicationLogo from './ApplicationLogo';
 export default function NavBar({ user }) {
     return (
         <>
-            <header className=" bg-white px-4 md:px-12 h-12 md:h-24 w-full fixed flex flex-1 justify-between items-center top-0 pb-1">
+            <header className=" bg-white px-4 md:px-12 h-12 md:h-24 w-full fixed z-10 flex flex-1 justify-between items-center top-0 pb-1">
                 <div className=''>
                     <Link href="/">
                         <ApplicationLogo className="h-10 block w-auto fill-current text-gray-800 dark:text-gray-200" />

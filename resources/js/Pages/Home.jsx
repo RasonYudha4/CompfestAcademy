@@ -21,7 +21,7 @@ export default function Home({ auth, laravelVersion, phpVersion }) {
                 </div>
             </section>
             <ImageSlider/>
-            <section className=' w-full min-h-screen'>
+            <section className=' w-full min-h-screen bg-black'>
 
             </section>
         </>

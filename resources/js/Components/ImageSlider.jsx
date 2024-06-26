@@ -8,7 +8,7 @@ export default function ImageSlider() {
         {
             img: facial,
             title: "Facial Treatments",
-            desc: "We offer a variety of options to address specific concerns, like acne, wrinkles, or uneven skin tone. Enjoy a relaxing experience with extractions"
+            desc: "Our facials are customized skin treatments designed to cleanse, exfoliate, and hydrate your skin. We offer a variety of options to address specific concerns, like acne, wrinkles, or uneven skin tone. Enjoy a relaxing experience with extractions"
         },
         {
             img: hairstyle,
@@ -40,11 +40,11 @@ export default function ImageSlider() {
         <>
             <section className=' pt-8 w-full h-[380px] md:h-[480px]'>
                 <h2 className=' font-black md:text-3xl mb-8 pl-8'>Services</h2>
-                <div style={{ backgroundImage: `url(${slides[currentIndex].img})` }} className=' relative group w-full h-72 bg-center bg-cover duration-500'>
-                    <div className=' bg-black/40 absolute w-full h-72'>
-                        <div className=' text-white translate-y-[300%] ml-3'>
-                            <h4 className=' font-bold pb-3'>{slides[currentIndex].title}</h4>
-                            <p className=' text-xs'>{slides[currentIndex].desc}</p>
+                <div style={{ backgroundImage: `url(${slides[currentIndex].img})` }} className=' relative group w-full h-72 md:h-full bg-center bg-cover duration-500'>
+                    <div className=' bg-black/40 absolute w-full h-72 md:h-full z-0'>
+                        <div className=' text-white translate-y-[200px] md:translate-y-[300%] ml-3'>
+                            <h4 className=' font-bold pb-3 md:text-3xl'>{slides[currentIndex].title}</h4>
+                            <p className=' text-xs md:text-xl'>{slides[currentIndex].desc}</p>
                         </div>
                     </div>
                     <div onClick={prevSlide}>
