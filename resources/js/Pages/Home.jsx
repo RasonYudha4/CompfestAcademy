@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 import Background from '../../../public/images/Background.png';
 import NavBar from '@/Components/NavBar';
 import ImageSlider from '@/Components/ImageSlider';
+import BranchSection from '@/Components/BranchSection';
 
 export default function Home({ auth, laravelVersion, phpVersion }) {
     return (
@@ -21,9 +22,7 @@ export default function Home({ auth, laravelVersion, phpVersion }) {
                 </div>
             </section>
             <ImageSlider/>
-            <section className=' w-full min-h-screen bg-black'>
-
-            </section>
+            <BranchSection/>
         </>
     )
 }

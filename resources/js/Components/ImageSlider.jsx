@@ -38,9 +38,9 @@ export default function ImageSlider() {
 
     return (
         <>
-            <section className=' pt-8 w-full h-[380px] md:h-[480px]'>
+            <section className=' pt-8 w-full h-[380px] md:min-h-[640px]'>
                 <h2 className=' font-black md:text-3xl mb-8 pl-8'>Services</h2>
-                <div style={{ backgroundImage: `url(${slides[currentIndex].img})` }} className=' relative group w-full h-72 md:h-full bg-center bg-cover duration-500'>
+                <div style={{ backgroundImage: `url(${slides[currentIndex].img})` }} className=' relative group w-full h-72 md:h-[480px] bg-center bg-cover duration-500'>
                     <div className=' bg-black/40 absolute w-full h-72 md:h-full z-0'>
                         <div className=' text-white translate-y-[200px] md:translate-y-[300%] ml-3'>
                             <h4 className=' font-bold pb-3 md:text-3xl'>{slides[currentIndex].title}</h4>
