@@ -8,21 +8,9 @@ import PrimaryButton from './PrimaryButton';
 export default function BranchSection() {
     return (
         <>
-            <section className=" pt-3 w-full h-92 bg-[#cfe8d6] md:grid md:grid-cols-2 md:-gap-4">
-                {/* <div className=" p-12">
-                    <div className=" w-[450px] h-auto border-[#5CE1E6]">
-                        <div className=' flex justify-start'>
-                            <img src={Branch1} alt="" />
-                            <div className=''>
-                                <h4 className=' font-black text-xl'>Jl. Ciliwung Raya No.42, Simpangan, Kec. Cikarang Utara, Kabupaten Bekasi, Jawa Barat 17530</h4>
-                                <p><span>Open Hours : </span> 10:00 - 20:00 </p>
-                                <StarRating />
-                            </div>
-                        </div>
-                        <button>Review</button>
-                    </div>
-                </div> */}
-
+            <section className=" pt-3 w-full h-92 bg-[#cfe8d6]">
+            <h2 className=' font-black md:text-3xl my-4 pl-8'>Branches</h2>
+                <div className=' md:grid md:grid-cols-2 md:-gap-4'>
                 <div className='m-4'>
                     <div class="mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                         <div class="md:flex">
@@ -103,7 +91,7 @@ export default function BranchSection() {
                         </div>
                     </div>
                 </div>
-                
+                </div>
             </section>
         </>
     )
