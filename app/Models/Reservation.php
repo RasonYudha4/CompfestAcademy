@@ -19,4 +19,6 @@ class Reservation extends Model
         'time'
     ];
 
+    protected $guarded = [];
+
 }

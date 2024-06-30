@@ -6,12 +6,9 @@ import TextInput from '@/Components/TextInput';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { Head, useForm } from '@inertiajs/react';
-import { useState } from 'react';
 import { FaCalendar } from 'react-icons/fa';
 
 export default function Reservation({ auth }) {
-    const [selectedDate, setSelectedDate] = useState(null);
-
     function CustomInput({ value, onClick }) {
         return (
             <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
@@ -44,7 +41,7 @@ export default function Reservation({ auth }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        post(route('reserve.post'));
     };
 
     return (
@@ -65,7 +62,7 @@ export default function Reservation({ auth }) {
                             autoComplete="name"
                             isFocused={true}
                             onChange={(e) => setData('name', e.target.value)}
-                            required
+                            
                         />
 
                         <InputError message={errors.name} className="mt-2" />
@@ -82,7 +79,7 @@ export default function Reservation({ auth }) {
                             className="mt-1 block w-full"
                             autoComplete="username"
                             onChange={(e) => setData('phone', e.target.value)}
-                            required
+                            
                         />
 
                         <InputError message={errors.phone} className="mt-2" />
@@ -91,17 +88,20 @@ export default function Reservation({ auth }) {
                     <div className='mt-4'>
                         <InputLabel htmlFor="service" value="Select Service" />
 
-                        <select onChange={(e) => setData('service', e.target.value)} name="services" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select onChange={(e) => setData('service', e.target.value)} name="service" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected disabled>Select service</option>
                             <option value="Facial">Facial Treatments</option>
                             <option value="Hair&Style">Haircut and Styling</option>
                             <option value="Manicure">Manicure and Pedicure</option>
                         </select>
+
+                        <InputError message={errors.service} className="mt-2" />
                     </div>
 
                     <div class="mt-4">
                         <InputLabel htmlFor="date" value="Select Date" />
                         <label><DatePicker id='date' selected={data.date} onChange={date => setData('date', date)} customInput={<CustomInput />} /> </label>
+                        <InputError message={errors.date} className="mt-2" />
                     </div>
 
                     <div className='mt-4'>
@@ -115,6 +115,8 @@ export default function Reservation({ auth }) {
                             <option value="13:00-14:00">13:00-14:00</option>
                             <option value="14:00-15:00">14:00-15:00</option>
                         </select>
+
+                        <InputError message={errors.time} className="mt-2" />
                     </div>
 
                     <div className="flex items-center justify-end mt-4">

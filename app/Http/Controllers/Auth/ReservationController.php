@@ -34,7 +34,7 @@ class ReservationController extends Controller
             'time' => $request->time
         ]);
 
-        return redirect(route('/'));
+        return redirect(route('home'));
 
     }
 }
