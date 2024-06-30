@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('review', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('branch');
-            $table->integer('rating');
-            $table->string('review');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('review');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn('userId');
+        });
     }
 };
