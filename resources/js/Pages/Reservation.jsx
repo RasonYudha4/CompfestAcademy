@@ -3,9 +3,34 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import { Head, useForm } from '@inertiajs/react';
+import { useState } from 'react';
+import { FaCalendar } from 'react-icons/fa';
 
 export default function Reservation({ auth }) {
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    function CustomInput({ value, onClick }) {
+        return (
+            <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+                <input
+                    type="text"
+                    className="form-control flex-1 p-2 border-0 focus:outline-none"
+                    value={value}
+                    onClick={onClick}
+                    readOnly
+                />
+                <div className="bg-gray-200 px-3 py-2">
+                    <span className="text-gray-600">
+                        <FaCalendar/>
+                    </span>
+                </div>
+            </div>
+        )
+    }
+
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -22,7 +47,6 @@ export default function Reservation({ auth }) {
 
     return (
         <>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.4.1/flowbite.min.js"></script>
             <Head title="Reserve" />
             <AuthenticatedLayout
                 user={auth.user}
@@ -63,7 +87,7 @@ export default function Reservation({ auth }) {
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel htmlFor="phone" value="Phone Number" />
+                        <InputLabel htmlFor="service" value="Select Service" />
 
                         <select name="services" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected>Select service</option>
@@ -74,21 +98,14 @@ export default function Reservation({ auth }) {
                     </div>
 
                     <div class="mt-4">
-                    <InputLabel htmlFor="phone" value="Phone Number" />
-                        <div className='relative w-full'>
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
-                        </div>
-                        <input datepicker id="default-datepicker" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date"/>
-                    </div>
+                        <InputLabel htmlFor="date" value="Select Date" />
+                        <label><DatePicker id='date' selected={selectedDate} onChange={date => setSelectedDate(date)} customInput={<CustomInput />} /> </label>
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel htmlFor="phone" value="Phone Number" />
+                        <InputLabel htmlFor="time" value="Select time" />
 
-                        <select name="services" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected>Select Time</option>
                             <option value="09:00-10:00">09:00-10:00</option>
                             <option value="10:00-11:00">10:00-11:00</option>
