@@ -33,11 +33,13 @@ export default function Reservation({ auth }) {
 
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
-        email: '',
         phone: '',
-        password: '',
-        password_confirmation: '',
+        service: '',
+        date: '',
+        time: '',
     });
+
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -89,8 +91,8 @@ export default function Reservation({ auth }) {
                     <div className='mt-4'>
                         <InputLabel htmlFor="service" value="Select Service" />
 
-                        <select name="services" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option selected>Select service</option>
+                        <select onChange={(e) => setData('service', e.target.value)} name="services" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            <option selected disabled>Select service</option>
                             <option value="Facial">Facial Treatments</option>
                             <option value="Hair&Style">Haircut and Styling</option>
                             <option value="Manicure">Manicure and Pedicure</option>
@@ -99,13 +101,13 @@ export default function Reservation({ auth }) {
 
                     <div class="mt-4">
                         <InputLabel htmlFor="date" value="Select Date" />
-                        <label><DatePicker id='date' selected={selectedDate} onChange={date => setSelectedDate(date)} customInput={<CustomInput />} /> </label>
+                        <label><DatePicker id='date' selected={data.date} onChange={date => setData('date', date)} customInput={<CustomInput />} /> </label>
                     </div>
 
                     <div className='mt-4'>
                         <InputLabel htmlFor="time" value="Select time" />
 
-                        <select name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select onChange={(e) => setData('time', e.target.value)} name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected>Select Time</option>
                             <option value="09:00-10:00">09:00-10:00</option>
                             <option value="10:00-11:00">10:00-11:00</option>
