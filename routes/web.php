@@ -26,6 +26,15 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/admin/dashboard', function () {
+    return Inertia::render('AdminDashboard', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('home');
+
 Route::get('/aboutus', function () {
     return Inertia::render('About');
 })->name('aboutus');
@@ -42,11 +51,11 @@ Route::get('/services', function () {
 //     middleware(['auth', 'admin']);
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     
-    Route::get('/admin/review', [ReviewController::class])->name('admin.review');
+    Route::get('/admin/review', [ReviewController::class, 'index'])->name('admin.review');
     
-    Route::get('/admin/reservation', [ReservationController::class])->name('admin.reservation');
+    Route::get('/admin/reservation', [ReservationController::class, 'index'])->name('admin.reservation');
 });
 
 Route::middleware('auth')->group(function () {

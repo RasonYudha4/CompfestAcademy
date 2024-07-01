@@ -14,7 +14,8 @@ class Review extends Model
     protected $fillable = [
         'branch',
         'rating',
-        'review'
+        'review',
+        'userId'
     ];
 
     protected $guarded = [];

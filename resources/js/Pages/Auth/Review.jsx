@@ -1,16 +1,25 @@
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import PrimaryButton from '@/Components/PrimaryButton';
+import TextInput from '@/Components/TextInput';
+import { Head, useForm } from '@inertiajs/react';
+
 export default function Review({ auth }) {
     
     const { data, setData, post, processing, errors, reset } = useForm({
         branch: '',
         rating: '',
-        review: ''
+        review: '',
+        userId: auth.user
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('home'));
+        post(route('review.post'));
     };
+
 
     return (
         <>
@@ -22,7 +31,7 @@ export default function Review({ auth }) {
                     <div>
                         <InputLabel htmlFor="branch" value="Choose a Branch" />
 
-                        <select onChange={(e) => setData('branch', e.target.value)} name="branch" id="branch" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select onChange={(e) => setData('branch', e.target.value)} name="branch" id="branch" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected disabled>Select branch</option>
                             <option value="Ckr">Cikarang Branch</option>
                             <option value="Jkt1">Jakarta Branch 1</option>
@@ -51,26 +60,7 @@ export default function Review({ auth }) {
                     </div>
 
                     <div className='mt-4'>
-                        <InputLabel htmlFor="service" value="Select Service" />
-
-                        <select onChange={(e) => setData('service', e.target.value)} name="service" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option selected disabled>Select service</option>
-                            <option value="Facial">Facial Treatments</option>
-                            <option value="Hair&Style">Haircut and Styling</option>
-                            <option value="Manicure">Manicure and Pedicure</option>
-                        </select>
-
-                        <InputError message={errors.service} className="mt-2" />
-                    </div>
-
-                    <div class="mt-4">
-                        <InputLabel htmlFor="date" value="Select Date" />
-                        <label><DatePicker id='date' selected={data.date} onChange={date => setData('date', date)} customInput={<CustomInput />} /> </label>
-                        <InputError message={errors.date} className="mt-2" />
-                    </div>
-
-                    <div className='mt-4'>
-                        <InputLabel htmlFor="review" value="Inquiry" />
+                        <InputLabel htmlFor="review" value="Review" />
 
                         <TextInput
                             id="review"
