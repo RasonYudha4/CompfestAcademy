@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ReviewController;
 use App\Http\Controllers\Auth\ReservationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -37,8 +38,16 @@ Route::get('/services', function () {
     return Inertia::render('Services');
 })->name('services');
 
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->
-    middleware(['auth', 'admin']);
+// Route::get('/admin/dashboard', [AdminController::class, 'index'])->
+//     middleware(['auth', 'admin']);
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class])->name('admin.dashboard');
+    
+    Route::get('/admin/review', [ReviewController::class])->name('admin.review');
+    
+    Route::get('/admin/reservation', [ReservationController::class])->name('admin.reservation');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
