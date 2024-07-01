@@ -11,6 +11,13 @@ use Inertia\Response;
 
 class ReservationController extends Controller
 {
+    public function index() : Response
+    {
+        return Inertia::render('Admin/Reservation', [
+            'reservations' => Reservation::all()
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('Auth/Reservation');
@@ -36,5 +43,13 @@ class ReservationController extends Controller
 
         return redirect(route('home'));
 
+    }
+
+    public function destroy($id)
+    {
+        $reservation = Reservation::class->find($id)->first();
+        $reservation->delete();
+
+        return redirect(route('admin.reservation'));
     }
 }

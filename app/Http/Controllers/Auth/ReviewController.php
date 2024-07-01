@@ -15,7 +15,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Auth/Review');
+        return Inertia::render('Index', [
+            'posts' => Post::all()
+        ]);
     }
 
     /**
@@ -49,26 +51,10 @@ class ReviewController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Review $review)
-    {
-        $reviews = Review::with('user')->get();
-        $users = User::all();
-        return view('admin.review', [
-            'feedbacks' => $feedbacks,
-            'users' => $users
-        ]);
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Review $review)
     {
-        $review = Review::class->find($id)->first();
         $review->delete();
-
-        return redirect(route('admin.review'));
     }
 }
