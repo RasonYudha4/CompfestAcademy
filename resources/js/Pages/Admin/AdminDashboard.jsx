@@ -1,9 +1,9 @@
+import Sidebar from "@/Components/Sidebar"
 
-
-export default function AdminDashboard() {
+export default function AdminDashboard({ auth }) {
     return (
         <>
-            <h1>Admin</h1>
+            <Sidebar/>
         </>
     )    
 }

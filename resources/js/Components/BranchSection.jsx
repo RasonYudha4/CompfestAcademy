@@ -3,7 +3,6 @@ import Branch2 from '../../../public/images/Branch2.png';
 import Branch3 from '../../../public/images/Branch3.jpg';
 import Branch4 from '../../../public/images/Branch4.png';
 import StarRating from './StarRating';
-import PrimaryButton from './PrimaryButton';
 
 export default function BranchSection() {
     return (
@@ -25,7 +24,7 @@ export default function BranchSection() {
                                             <p class="mt-2 text-slate-500 text-sm md:text-base">Open time : 10:00 - 20:00</p>
                                             <StarRating />
                                         </div>
-                                        <PrimaryButton className=' rounded-2xl '>Review</PrimaryButton>
+                                        <a href="/review" className=' rounded-2xl inline-flex items-center px-4 py-2 bg-[#5CE1E6] dark:bg-gray-200 border border-transparent font-semibold text-xs text-black dark:text-gray-800 uppercase tracking-widest hover:bg-[#22ABFA] dark:hover:bg-white hover:text-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-250'>Review</a>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +44,7 @@ export default function BranchSection() {
                                             <p class="mt-2 text-slate-500 text-sm md:text-base">Open time : 08:00 - 21:00</p>
                                             <StarRating />
                                         </div>
-                                        <PrimaryButton className=' rounded-2xl '>Review</PrimaryButton>
+                                        <a href="/review" className=' rounded-2xl inline-flex items-center px-4 py-2 bg-[#5CE1E6] dark:bg-gray-200 border border-transparent font-semibold text-xs text-black dark:text-gray-800 uppercase tracking-widest hover:bg-[#22ABFA] dark:hover:bg-white hover:text-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-250'>Review</a>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +64,7 @@ export default function BranchSection() {
                                             <p class="mt-2 text-slate-500 text-sm md:text-base">Open time : 08:00 - 21:00</p>
                                             <StarRating />
                                         </div>
-                                        <PrimaryButton className=' rounded-2xl '>Review</PrimaryButton>
+                                        <a href="/review" className=' rounded-2xl inline-flex items-center px-4 py-2 bg-[#5CE1E6] dark:bg-gray-200 border border-transparent font-semibold text-xs text-black dark:text-gray-800 uppercase tracking-widest hover:bg-[#22ABFA] dark:hover:bg-white hover:text-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-250'>Review</a>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +84,7 @@ export default function BranchSection() {
                                             <p class="mt-2 text-slate-500 text-sm md:text-base">Open time : 08:00 - 19:00</p>
                                             <StarRating />
                                         </div>
-                                        <PrimaryButton className=' rounded-2xl '>Review</PrimaryButton>
+                                        <a href="/review" className=' rounded-2xl inline-flex items-center px-4 py-2 bg-[#5CE1E6] dark:bg-gray-200 border border-transparent font-semibold text-xs text-black dark:text-gray-800 uppercase tracking-widest hover:bg-[#22ABFA] dark:hover:bg-white hover:text-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-250'>Review</a>
                                     </div>
                                 </div>
                             </div>
