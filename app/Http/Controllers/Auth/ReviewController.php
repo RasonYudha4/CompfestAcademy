@@ -17,8 +17,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Index', [
-            'posts' => Post::all()
+        return Inertia::render('Admin/Review', [
+            'reviews' => Review::all()
         ]);
     }
 
