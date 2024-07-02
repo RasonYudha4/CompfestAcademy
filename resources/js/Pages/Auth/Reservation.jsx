@@ -88,7 +88,7 @@ export default function Reservation({ auth }) {
                     <div className='mt-4'>
                         <InputLabel htmlFor="service" value="Select Service" />
 
-                        <select onChange={(e) => setData('service', e.target.value)} name="service" id="service" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select onChange={(e) => setData('service', e.target.value)} name="service" id="service" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected disabled>Select service</option>
                             <option value="Facial">Facial Treatments</option>
                             <option value="Hair&Style">Haircut and Styling</option>
@@ -98,7 +98,7 @@ export default function Reservation({ auth }) {
                         <InputError message={errors.service} className="mt-2" />
                     </div>
 
-                    <div class="mt-4">
+                    <div className="mt-4">
                         <InputLabel htmlFor="date" value="Select Date" />
                         <label><DatePicker id='date' selected={data.date} onChange={date => setData('date', date)} customInput={<CustomInput />} /> </label>
                         <InputError message={errors.date} className="mt-2" />
@@ -107,7 +107,7 @@ export default function Reservation({ auth }) {
                     <div className='mt-4'>
                         <InputLabel htmlFor="time" value="Select time" />
 
-                        <select onChange={(e) => setData('time', e.target.value)} name="time" id="time" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select onChange={(e) => setData('time', e.target.value)} name="time" id="time" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected>Select Time</option>
                             <option value="09:00-10:00">09:00-10:00</option>
                             <option value="10:00-11:00">10:00-11:00</option>

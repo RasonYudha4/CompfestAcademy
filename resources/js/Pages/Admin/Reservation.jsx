@@ -11,22 +11,22 @@ export default function Reservation({ reservations }) {
                     <table className=" table-auto w-full h-auto border-collapse border border-slate-500">
                         <thead>
                             <tr>
-                                <th class="border border-slate-600">Name</th>
-                                <th class="border border-slate-600">Service</th>
-                                <th class="border border-slate-600">Phone</th>
-                                <th class="border border-slate-600">Date</th>
-                                <th class="border border-slate-600">Time</th>
+                                <th className="border border-slate-600">Name</th>
+                                <th className="border border-slate-600">Service</th>
+                                <th className="border border-slate-600">Phone</th>
+                                <th className="border border-slate-600">Date</th>
+                                <th className="border border-slate-600">Time</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 reservations.map(reservation => (
                                     <tr key={reservation.id}>
-                                        <td class="border border-slate-700 bg-gray-300">{reservation.name}</td>
-                                        <td class="border border-slate-700 bg-gray-300">{reservation.service}</td>
-                                        <td class="border border-slate-700 bg-gray-300">{reservation.phone}</td>
-                                        <td class="border border-slate-700 bg-gray-300">{reservation.date}</td>
-                                        <td class="border border-slate-700 bg-gray-300">{reservation.time}</td>
+                                        <td className="border border-slate-700 bg-gray-300">{reservation.name}</td>
+                                        <td className="border border-slate-700 bg-gray-300">{reservation.service}</td>
+                                        <td className="border border-slate-700 bg-gray-300">{reservation.phone}</td>
+                                        <td className="border border-slate-700 bg-gray-300">{reservation.date}</td>
+                                        <td className="border border-slate-700 bg-gray-300">{reservation.time}</td>
                                     </tr>
                                 ))
                                 }
